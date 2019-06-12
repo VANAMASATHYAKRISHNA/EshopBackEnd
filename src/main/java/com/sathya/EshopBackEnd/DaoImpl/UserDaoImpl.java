@@ -73,7 +73,7 @@ return user;
 		Session session=null;
 		try {
 			session	=sessionFactory.openSession();
-			session.update(user);
+			session.save(user);
 		Transaction transaction=	session.beginTransaction();
 		transaction.commit();
 		 System.out.println("try");

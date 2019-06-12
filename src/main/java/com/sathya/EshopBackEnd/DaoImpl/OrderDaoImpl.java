@@ -2,6 +2,7 @@ package com.sathya.EshopBackEnd.DaoImpl;
 
 import java.util.List;
 
+import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
@@ -40,9 +41,14 @@ public class OrderDaoImpl implements OrderDao
         }
 
 	@Override
-	public List<UserOrder> getMyOrders(String userName) {
-		
-		return null;
-	}
+	public List<UserOrder> getMyOrders(String userName) 
+	{
+		Session session = sessionFactory.openSession();
+		 Query query    =   session.createQuery("from UserOrder where user_email=:em");
+		 query.setParameter("em" ,userName);
+		List<UserOrder> userorderlist= query.list();
+		session.close();
+		return userorderlist;
+		}
 
 }

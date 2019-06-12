@@ -17,12 +17,13 @@ public class UserOrder
 	private int id;
 	@Column
 	private Date purchaseDate;
-	@Column
+	  @Column
 	private int grandTotal;
 	 @ManyToOne(cascade =CascadeType.ALL )
 	private User user;
-	public int getId() 
-	{
+	 @ManyToOne(cascade =CascadeType.ALL )
+     private ShippingAddress shippingAddress;
+	public int getId() {
 		return id;
 	}
 	public void setId(int id) {
@@ -45,6 +46,12 @@ public class UserOrder
 	}
 	public void setUser(User user) {
 		this.user = user;
+	}
+	public ShippingAddress getShippingAddress() {
+		return shippingAddress;
+	}
+	public void setShippingAddress(ShippingAddress shippingAddress) {
+		this.shippingAddress = shippingAddress;
 	}
 	
 }
