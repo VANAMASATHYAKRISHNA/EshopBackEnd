@@ -20,6 +20,8 @@ public class UserDaoImpl implements UserDao
 		Session session=null;
 			try {
 				session	=sessionFactory.openSession();
+				user.setEnabled(true );
+				user.setRole("ROLE_USER");
 				session.save(user);
 			Transaction transaction=	session.beginTransaction();
 			transaction.commit();
@@ -73,7 +75,7 @@ return user;
 		Session session=null;
 		try {
 			session	=sessionFactory.openSession();
-			session.save(user);
+			session.update(user);
 		Transaction transaction=	session.beginTransaction();
 		transaction.commit();
 		 System.out.println("try");
