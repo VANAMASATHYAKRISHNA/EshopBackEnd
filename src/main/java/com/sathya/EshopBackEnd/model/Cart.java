@@ -5,6 +5,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Transient;
 
 import org.hibernate.annotations.GeneratorType;
 @Entity
@@ -23,16 +24,24 @@ public class Cart
 	private	String productSupplier;
 	@Column
 	private String username;
+	@Column
+	private	int quantity;
+	@Column
+	private	int totalprice;
+	@Transient
+	private int stock;
+	public int getStock() {
+		return stock;
+	}
+	public void setStock(int stock) {
+		this.stock = stock;
+	}
 	public String getUsername() {
 		return username;
 	}
 	public void setUsername(String username) {
 		this.username = username;
 	}
-	@Column
-	private	int quantity;
-	@Column
-	private	int totalprice;
 	public int getCartid() {
 		return cartid;
 	}
