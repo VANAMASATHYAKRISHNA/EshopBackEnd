@@ -11,82 +11,77 @@ import org.springframework.stereotype.Component;
 
 import com.sathya.EshopBackEnd.Dao.SupplierDao;
 import com.sathya.EshopBackEnd.model.Supplier;
+
 @Component
-public class SupplierDaoImpl implements SupplierDao
-{
+public class SupplierDaoImpl implements SupplierDao {
 	@Autowired
 	SessionFactory sessionFactory;
+
 	public boolean saveSupplier(Supplier supplier) {
-		
-		Session session=null;
+
+		Session session = null;
 		try {
-			session	=sessionFactory.openSession();
+			session = sessionFactory.openSession();
 			session.save(supplier);
-		Transaction transaction=	session.beginTransaction();
-		transaction.commit();
-		 System.out.println("try");
+			Transaction transaction = session.beginTransaction();
+			transaction.commit();
+			System.out.println("try");
 			return true;
-		}
-		catch (Exception e)
-		{
+		} catch (Exception e) {
 			e.printStackTrace();
 			System.out.println("catch");
 			return false;
-		}
-		finally {
+		} finally {
 			session.close();
 		}
-		
+
 	}
+
 	public List<Supplier> getSupplierList() {
-		Session session=sessionFactory.openSession();
-		Query query= session.createQuery("from Supplier");
-		List<Supplier> supplierlist=query.list();
-		for(Supplier supplier:supplierlist)
-		{
-		System.out.println(supplier.getSupplierName());
-		System.out.println(supplier.getSupplierDetails());
+		Session session = sessionFactory.openSession();
+		Query query = session.createQuery("from Supplier");
+		List<Supplier> supplierlist = query.list();
+		for (Supplier supplier : supplierlist) {
+			System.out.println(supplier.getSupplierName());
+			System.out.println(supplier.getSupplierDetails());
 		}
 		session.close();
 		return supplierlist;
-		}
-public Supplier getSupplier(int supplierId) {
-	Session session=sessionFactory.openSession();
-	Supplier supplier=session.get(Supplier.class, supplierId);
-	session.close();
-		return supplier;
-		}
+	}
 
-	
+	public Supplier getSupplier(int supplierId) {
+		Session session = sessionFactory.openSession();
+		Supplier supplier = session.get(Supplier.class, supplierId);
+		session.close();
+		return supplier;
+	}
+
 	public boolean deleteSupplier(Supplier supplier) {
-		Session session=sessionFactory.openSession();
+		Session session = sessionFactory.openSession();
 		session.delete(supplier);
-		Transaction transaction=session.beginTransaction();
+		Transaction transaction = session.beginTransaction();
 		transaction.commit();
 		session.close();
 		return false;
 	}
+
 	@Override
 	public boolean editSupplier(Supplier supplier) {
-		Session session=null;
+		Session session = null;
 		try {
-			session	=sessionFactory.openSession();
+			session = sessionFactory.openSession();
 			session.update(supplier);
-		Transaction transaction=	session.beginTransaction();
-		transaction.commit();
-		 System.out.println("try");
+			Transaction transaction = session.beginTransaction();
+			transaction.commit();
+			System.out.println("try");
 			return true;
-		}
-		catch (Exception e)
-		{
+		} catch (Exception e) {
 			e.printStackTrace();
 			System.out.println("catch");
 			return false;
-		}
-		finally {
+		} finally {
 			session.close();
 		}
-		
+
 	}
-	}
-	
+}
