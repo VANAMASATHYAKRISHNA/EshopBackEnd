@@ -15,24 +15,25 @@ public class Category
 	@Column
    private String categoryName;
 	@Column
- private  String categoryDiscription;
-public int getCategoryId()
-{
-	return categoryId;
-}
-public void setCategoryId(int categoryId) {
-	this.categoryId = categoryId;
-}
-public String getCategoryName() {
-	return categoryName;
-}
-public void setCategoryName(String categoryName) {
-	this.categoryName = categoryName;
-}
-public String getCategoryDiscription() {
-	return categoryDiscription;
-}
-public void setCategoryDiscription(String categoryDiscription) {
-	this.categoryDiscription = categoryDiscription;
-}
+	 private  String categoryDiscription;
+	public int getCategoryId() {
+		return categoryId;
+	}
+	public void setCategoryId(int categoryId) {
+		this.categoryId = categoryId;
+	}
+	public String getCategoryName() {
+		return categoryName;
+	}
+	public void setCategoryName(String categoryName) {
+		this.categoryName = categoryName;
+	}
+	public String getCategoryDiscription() {
+		return categoryDiscription;
+	}
+	public void setCategoryDiscription(String categoryDiscription) {
+		this.categoryDiscription = categoryDiscription;
+	}
+	
+	
  }

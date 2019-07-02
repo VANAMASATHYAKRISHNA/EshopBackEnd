@@ -27,12 +27,6 @@ private	String productDescription;
 	private int stock;
 	@Transient
 	private MultipartFile proimg;
-	public MultipartFile getProimg() {
-		return proimg;
-	}
-	public void setProimg(MultipartFile proimg) {
-		this.proimg = proimg;
-	}
 	public int getProductId() {
 		return productId;
 	}
@@ -60,12 +54,6 @@ private	String productDescription;
 	public String getProductCategory() {
 		return productCategory;
 	}
-	public int getStock() {
-		return stock;
-	}
-	public void setStock(int stock) {
-		this.stock = stock;
-	}
 	public void setProductCategory(String productCategory) {
 		this.productCategory = productCategory;
 	}
@@ -75,5 +63,17 @@ private	String productDescription;
 	public void setProductSupplier(String productSupplier) {
 		this.productSupplier = productSupplier;
 	}
-
+	public int getStock() {
+		return stock;
+	}
+	public void setStock(int stock) {
+		this.stock = stock;
+	}
+	public MultipartFile getProimg() {
+		return proimg;
+	}
+	public void setProimg(MultipartFile proimg) {
+		this.proimg = proimg;
+	}
+	
 }

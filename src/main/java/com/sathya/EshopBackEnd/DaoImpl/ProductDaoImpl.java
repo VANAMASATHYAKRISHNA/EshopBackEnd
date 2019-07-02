@@ -82,7 +82,6 @@ public class ProductDaoImpl implements ProductDao {
 
 	@Override
 	public List<Product> getProductList(Category category) {
-
 		Session session = sessionFactory.openSession();
 		Query query = session.createQuery("from Product where productCategory=:pm");
 		query.setParameter("pm", category.getCategoryName());
@@ -90,4 +89,4 @@ public class ProductDaoImpl implements ProductDao {
 		session.close();
 		return productlist;
 	}
-}
+	}
